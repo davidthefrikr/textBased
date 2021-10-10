@@ -5,11 +5,11 @@ class App {
 	static Scanner s = new Scanner(System.in);
 	static HashMap<String, Location> locs = new HashMap<>();
     static String[][] validInputs = {
-                                    {"left", "right"}, //0. Start inputs
-                                    {"follow", "no follow"}, //1. from left
-                                    {"turn back", "go through"}, //2. from right
-                                    {"accept", "deny"}, //3. from follow
-                                    {"wake up", "sleep"}, //4. from accept, no follow
+                                    {"left", "right"},           //0. Start inputs
+                                    {"follow", "no follow"},     //1. from left
+                                    {"turn back", "go through carefully", "run through"}, //2. from right
+                                    {"accept", "deny"},          //3. from follow
+                                    {"wake up", "sleep"},        //4. from accept, no follow
                                   };
   static String currentLocation = "wake up";
 
@@ -27,13 +27,13 @@ class App {
 
     locs.put("right", new Location("You see an open field, with what seems to be landmines.", validInputs[2]));
         locs.put("turn back", new Location("Without anything to do, you wander the forest. Eventually you feel tired and fall asleep when night falls", validInputs[4]));
-
-        locs.put("go through", new Location("", true));
+        locs.put("run through", new Location("You try to run through, but luck doesn't seem to be on your side.\nYou hear an explosion and everything goes hazy...", validInputs[4]));
+        locs.put("go through carefully", new Location("", true));
     
     /*
     check to see whether or not the input is valid, if it's invalid then it says you can't
     
-    once the while loop is done, print out "muerte"
+    once the while loop is done, print out ending thing
     */
     while (!locs.get(currentLocation).isEnd){
       System.out.print(locs.get(currentLocation));
@@ -42,7 +42,7 @@ class App {
       if (locs.get(currentLocation).checkInput(userInput)) {
         currentLocation = userInput;
       } else {
-        System.out.println("can't go there, type in a valid input");
+        System.out.println("You can't go there, type in \033[3mexactly\033[0m where you want to go.");
         //gotta have this do the gamer maneuver and call itself again so that user can try to reinput the thing
       }
     }
