@@ -25,6 +25,6 @@ class Location {
 	}
 	
   public String toString(){
-    return desc + " (" + String.join("/", inputs) + ")";
+    return desc + " (" + String.join("/", inputs) + ")" + "\n";
   }
 }
