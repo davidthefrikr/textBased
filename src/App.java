@@ -22,6 +22,7 @@ class App {
     locs.put("left", new Location("You hear a creature scuttle across the floor.", validInputs[1]));
         locs.put("follow", new Location("After following the creature for a bit, he notices. He decides to invite you to his hut.", validInputs[3]));
             locs.put("accept", new Location("His hut is nice and warm. The warmt tires you, and you fall asleep", validInputs[4]));
+            locs.put("deny", new Location("Without anything to do, you wander the forest. Eventually you feel tired and fall asleep when night falls", validInputs[4]));
 
         locs.put("no follow", new Location("Without anything to do, you wander the forest. Eventually you feel tired and fall asleep when night falls", validInputs[4]));
 
